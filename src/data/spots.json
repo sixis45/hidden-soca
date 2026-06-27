@@ -1,0 +1,95 @@
+{
+  "categories": [
+    { "id": "waterfalls",   "label": "Waterfalls",    "color": "#18a89f" },
+    { "id": "gorges",       "label": "Gorges & pools", "color": "#0f7f78" },
+    { "id": "swimming",     "label": "Wild swimming",  "color": "#3fbfd6" },
+    { "id": "wwi",          "label": "WWI history",    "color": "#e09227" },
+    { "id": "viewpoints",   "label": "Viewpoints",     "color": "#7a5b3a" }
+  ],
+  "spots": [
+    {
+      "name": "Kozjak Waterfall",
+      "type": "waterfalls",
+      "lat": 46.2486, "lng": 13.5806,
+      "blurb": "15 m fall in a cathedral-like cave chamber near Kobarid. 25–30 min walk from the Napoleon Bridge.",
+      "post": "kozjak-waterfall"
+    },
+    {
+      "name": "Boka Waterfall",
+      "type": "waterfalls",
+      "lat": 46.3104, "lng": 13.5447,
+      "blurb": "At 144 m, the highest waterfall in Slovenia. Thunderous at snowmelt; viewable from the road bridge.",
+      "post": "boka-waterfall"
+    },
+    {
+      "name": "Virje Waterfall",
+      "type": "waterfalls",
+      "lat": 46.3389, "lng": 13.5283,
+      "blurb": "Wide, gentle fall into a turquoise pool near Bovec. Short, easy access.",
+      "post": "hidden-waterfalls"
+    },
+    {
+      "name": "Tolmin Gorge",
+      "type": "gorges",
+      "lat": 46.1869, "lng": 13.7300,
+      "blurb": "The lowest point of Triglav National Park. Devil's Bridge, Bear's Head and the Thermal Spring (20 °C, not for bathing).",
+      "post": "tolmin-gorge"
+    },
+    {
+      "name": "Velika korita (Great Gorge of the Soča)",
+      "type": "gorges",
+      "lat": 46.3450, "lng": 13.6590,
+      "blurb": "Up to 15 m deep, 750 m long emerald canyon near Lepena. Footbridges and viewpoints.",
+      "post": "gorges-emerald-pools"
+    },
+    {
+      "name": "Napoleon Bridge pools (Kobarid)",
+      "type": "swimming",
+      "lat": 46.2503, "lng": 13.5806,
+      "blurb": "Iconic stone bridge over deep emerald water. Cold year-round — limestone rock flour gives the colour.",
+      "post": "wild-swimming"
+    },
+    {
+      "name": "Otona / Trnovo pools",
+      "type": "swimming",
+      "lat": 46.2850, "lng": 13.5870,
+      "blurb": "Calmer reservoir-fed stretches popular for a summer swim. Always check current and depth first.",
+      "post": "wild-swimming"
+    },
+    {
+      "name": "Kobarid Museum",
+      "type": "wwi",
+      "lat": 46.2462, "lng": 13.5790,
+      "blurb": "Award-winning museum on the 1917 Battle of Caporetto (Isonzo Front). Start here before the trails.",
+      "post": "wwi-sites"
+    },
+    {
+      "name": "Italian Charnel House (Kobarid)",
+      "type": "wwi",
+      "lat": 46.2497, "lng": 13.5760,
+      "blurb": "Octagonal ossuary on Gradič hill holding the remains of over 7,000 Italian soldiers.",
+      "post": "wwi-sites"
+    },
+    {
+      "name": "Kolovrat Outdoor Museum",
+      "type": "wwi",
+      "lat": 46.1990, "lng": 13.5320,
+      "blurb": "Restored ridge-top trenches and tunnels with sweeping views into Italy. Often empty.",
+      "post": "wwi-sites"
+    },
+    {
+      "name": "Mangart Saddle",
+      "type": "viewpoints",
+      "lat": 46.4378, "lng": 13.6394,
+      "blurb": "The highest road in Slovenia (~2,055 m). Toll road; alpine panorama over the Julian Alps.",
+      "post": "hidden-waterfalls"
+    },
+    {
+      "name": "Vršič Pass",
+      "type": "viewpoints",
+      "lat": 46.4327, "lng": 13.7480,
+      "blurb": "Slovenia's highest mountain pass (1,611 m), 50 hairpins, the Russian Chapel on the north side.",
+      "post": "wwi-sites"
+    }
+  ]
+}

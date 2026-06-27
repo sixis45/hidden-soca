@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sixis45.github.io/hidden-soca/sitemap-index.xml

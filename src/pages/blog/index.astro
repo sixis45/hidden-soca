@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate)
+);
+---
+<BaseLayout
+  title="Soča Valley guides & blog — Hidden Soča"
+  description="Itineraries, hidden waterfalls, wild swimming, gorges and WWI history in the Soča Valley. Practical, locally checked guides."
+>
+  <section class="wrap head">
+    <p class="eyebrow">The blog</p>
+    <h1>Soča Valley guides</h1>
+    <p class="lede">Everything is mapped. Pick a spot, read the guide, go find it.</p>
+  </section>
+
+  <section class="wrap">
+    <div class="grid">
+      {posts.map((p) => (
+        <a class="card post-card" href={`${base}blog/${p.slug}`}>
+          <span class="eyebrow">{p.data.category}</span>
+          <h3>{p.data.title}</h3>
+          <p>{p.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .head { padding: 3rem 0 1rem; }
+  .lede { color: var(--ink-soft); font-size: 1.15rem; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.1rem;
+    padding-bottom: 2rem;
+  }
+  .post-card { display: block; padding: 1.3rem; text-decoration: none; color: var(--ink);
+    transition: transform 0.12s ease, box-shadow 0.12s ease; }
+  .post-card:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(31,58,44,0.12); }
+  .post-card h3 { margin: 0.3rem 0 0.4rem; }
+  .post-card p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+</style>

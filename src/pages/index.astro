@@ -1,0 +1,92 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Map from "../components/Map.astro";
+
+const base = import.meta.env.BASE_URL;
+const posts = (await getCollection("blog"))
+  .sort((a, b) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate))
+  .slice(0, 6);
+
+const jsonld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Hidden Soča",
+    url: "https://hiddensoca.com",
+    description:
+      "Off-the-beaten-path guide to the Soča Valley and western Slovenia.",
+  },
+];
+---
+<BaseLayout title="Hidden Soča — the off-the-beaten-path Soča Valley guide" jsonld={jsonld}>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Western Slovenia · Soča Valley</p>
+      <h1>The Soča Valley, minus the crowds.</h1>
+      <p class="lede">
+        Hidden waterfalls, emerald gorges, wild swimming holes and forgotten WWI
+        trenches — mapped and ground-truthed by someone who lives in the valley.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#map">Open the map</a>
+        <a class="btn btn-ghost" href={`${base}blog`}>Read the guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="map" class="wrap map-section">
+    <Map />
+    <p class="map-note mono">
+      Pins grouped by type · tiles by OpenTopoMap · coordinates verified on the ground (work in progress).
+    </p>
+  </section>
+
+  <section class="wrap guides">
+    <div class="guides-head">
+      <h2>Latest guides</h2>
+      <a href={`${base}blog`}>All posts →</a>
+    </div>
+    <div class="grid">
+      {posts.map((p) => (
+        <a class="card post-card" href={`${base}blog/${p.slug}`}>
+          <span class="eyebrow">{p.data.category}</span>
+          <h3>{p.data.title}</h3>
+          <p>{p.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background:
+      radial-gradient(120% 80% at 80% -10%, rgba(24, 168, 159, 0.18), transparent 60%),
+      var(--paper);
+    padding: 3.5rem 0 2rem;
+  }
+  .lede { font-size: 1.2rem; max-width: 56ch; color: var(--ink-soft); }
+  .hero-cta { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .map-section { padding-top: 1rem; scroll-margin-top: 72px; }
+  .map-note { color: var(--ink-soft); font-size: 0.78rem; margin-top: 0.7rem; }
+  .guides { padding: 2.5rem 0 1rem; }
+  .guides-head { display: flex; align-items: baseline; justify-content: space-between; }
+  .guides-head a { text-decoration: none; font-weight: 700; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.1rem;
+    margin-top: 1.2rem;
+  }
+  .post-card {
+    display: block;
+    padding: 1.3rem;
+    text-decoration: none;
+    color: var(--ink);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .post-card:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(31,58,44,0.12); }
+  .post-card h3 { margin: 0.3rem 0 0.4rem; }
+  .post-card p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+</style>

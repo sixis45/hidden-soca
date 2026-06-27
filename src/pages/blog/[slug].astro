@@ -1,0 +1,121 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const base = import.meta.env.BASE_URL;
+const url = new URL(`${base}blog/${post.slug}`, Astro.site).href;
+
+// Resolve related posts
+const related = (
+  await Promise.all(
+    post.data.related.map((slug) => getEntry("blog", slug).catch(() => undefined))
+  )
+).filter(Boolean);
+
+// JSON-LD: Article + (optional) FAQPage
+const jsonld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.data.title,
+    description: post.data.description,
+    datePublished: post.data.pubDate.toISOString(),
+    dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+    mainEntityOfPage: url,
+    author: { "@type": "Organization", name: "Hidden Soča" },
+    publisher: { "@type": "Organization", name: "Hidden Soča" },
+  },
+];
+if (post.data.faqs.length) {
+  jsonld.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: post.data.faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  });
+}
+
+const fmtDate = post.data.pubDate.toLocaleDateString("en-GB", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+<BaseLayout title={`${post.data.title} — Hidden Soča`} description={post.data.description} jsonld={jsonld}>
+  <article class="wrap narrow post">
+    <p class="eyebrow">{post.data.category} · {fmtDate}</p>
+    <h1>{post.data.title}</h1>
+    <p class="lede">{post.data.description}</p>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    {post.data.faqs.length > 0 && (
+      <section class="faq">
+        <h2>FAQ</h2>
+        {post.data.faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </section>
+    )}
+
+    <div class="cta-box">
+      <h3>See every spot on the map</h3>
+      <p>All the places in this guide are pinned and filterable by type.</p>
+      <a class="btn btn-primary" href={`${base}#map`}>Open the map</a>
+    </div>
+
+    {related.length > 0 && (
+      <section class="related">
+        <h2>Related guides</h2>
+        <div class="rel-grid">
+          {related.map((r) => (
+            <a class="card rel-card" href={`${base}blog/${r.slug}`}>
+              <span class="eyebrow">{r.data.category}</span>
+              <strong>{r.data.title}</strong>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <p class="back"><a href={`${base}blog`}>← All guides</a></p>
+  </article>
+</BaseLayout>
+
+<style>
+  .post { padding: 2.5rem 0 1rem; }
+  .lede { font-size: 1.2rem; color: var(--ink-soft); }
+  .prose :global(p) { margin: 1.1em 0; }
+  .prose :global(ul) { padding-left: 1.2rem; }
+  .prose :global(li) { margin: 0.4em 0; }
+  .prose :global(blockquote) {
+    margin: 1.4em 0; padding: 0.6em 1.1em;
+    border-left: 4px solid var(--amber);
+    background: var(--paper-2); border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .related { margin-top: 2.5rem; }
+  .rel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+  .rel-card { display: block; padding: 1rem 1.1rem; text-decoration: none; color: var(--ink); }
+  .rel-card strong { display: block; margin-top: 0.2rem; }
+  .rel-card:hover { box-shadow: 0 12px 30px rgba(31,58,44,0.12); }
+  .back { margin-top: 2.5rem; font-weight: 700; }
+  @media (max-width: 560px) { .rel-grid { grid-template-columns: 1fr; } }
+</style>
