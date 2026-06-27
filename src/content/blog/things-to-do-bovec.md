@@ -3,6 +3,10 @@ title: "Things to Do in Bovec: The Upper Valley Hub"
 description: "Bovec is the Soča Valley's adventure base — rafting, canyoning, the highest roads in Slovenia, Boka and Virje waterfalls. A local's rundown of what to actually do."
 category: "Planning"
 pubDate: 2026-05-08
+heroImage: "https://upload.wikimedia.org/wikipedia/commons/0/08/So%C4%8Da_River_Panorama.jpg"
+heroAlt: "The Soča river near Bovec"
+heroCredit: "MarcusObal / Wikimedia Commons (CC BY-SA 3.0)"
+heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_River_Panorama.jpg"
 faqs:
   - q: "Is Bovec worth visiting?"
     a: "Yes, especially for the active. It's the upper-valley hub for rafting, canyoning and ziplining, the gateway to Slovenia's highest roads (Vršič and Mangart), and minutes from Boka and Virje waterfalls."

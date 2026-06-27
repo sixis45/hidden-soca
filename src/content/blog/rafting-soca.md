@@ -3,6 +3,10 @@ title: "Rafting the Soča River: What to Know for 2026"
 description: "Seasons, difficulty, the mandatory 2026 river permit, and how to pick a section — a straight guide to rafting Slovenia's most famous river."
 category: "Activities"
 pubDate: 2026-02-22
+heroImage: "https://upload.wikimedia.org/wikipedia/commons/5/57/So%C4%8Da_river_5.jpg"
+heroAlt: "The Soča river near Bovec"
+heroCredit: "Tiia Monto / Wikimedia Commons (CC BY-SA 3.0)"
+heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_river_5.jpg"
 faqs:
   - q: "Do you need a permit to raft the Soča in 2026?"
     a: "Yes. For the 2026 season a river permit is mandatory, costing roughly €18–21. Licensed agencies typically include or arrange it as part of a booked trip — confirm when you book."

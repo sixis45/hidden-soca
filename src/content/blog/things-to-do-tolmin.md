@@ -3,6 +3,10 @@ title: "Things to Do in Tolmin: The Quiet South"
 description: "Tolmin is the valley's calmer, cheaper southern base — gateway to Tolmin Gorge, the river confluence, and big summer festivals. What to do and when to go."
 category: "Planning"
 pubDate: 2026-05-16
+heroImage: "https://upload.wikimedia.org/wikipedia/commons/0/08/So%C4%8Da_River_Panorama.jpg"
+heroAlt: "The Soča river near Bovec"
+heroCredit: "MarcusObal / Wikimedia Commons (CC BY-SA 3.0)"
+heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_River_Panorama.jpg"
 faqs:
   - q: "What is there to do in Tolmin?"
     a: "Tolmin Gorge (the lowest point of Triglav National Park), the Tolminka–Soča confluence, riverside relaxing, and major summer music festivals held at the confluence. It's also a good-value base for the wider valley."

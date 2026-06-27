@@ -3,6 +3,10 @@ title: "WWI Sites Tourists Miss in the Soča Valley"
 description: "The Isonzo Front ran straight through this valley. The Kobarid Museum, the Charnel House, Kolovrat's ridge trenches and the quieter places most visitors walk past."
 category: "WWI history"
 pubDate: 2026-03-14
+heroImage: "https://upload.wikimedia.org/wikipedia/commons/0/08/So%C4%8Da_River_Panorama.jpg"
+heroAlt: "The Soča river near Bovec"
+heroCredit: "MarcusObal / Wikimedia Commons (CC BY-SA 3.0)"
+heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_River_Panorama.jpg"
 faqs:
   - q: "What happened in the Soča Valley during WWI?"
     a: "The valley was the Isonzo Front, scene of twelve brutal battles between Italy and Austria-Hungary from 1915 to 1917. The 1917 Battle of Caporetto (Kobarid) was a decisive breakthrough. The fighting left trenches, tunnels, cemeteries and ossuaries across the landscape."

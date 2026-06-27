@@ -3,6 +3,10 @@ title: "The Kobarid Museum: Where to Start with the Isonzo Front"
 description: "The award-winning museum of the Soča/Isonzo Front — what's inside, why it won the Council of Europe Museum Prize, and how to use it as the key to the whole valley's WWI history."
 category: "WWI history"
 pubDate: 2026-04-18
+heroImage: "https://upload.wikimedia.org/wikipedia/commons/0/08/So%C4%8Da_River_Panorama.jpg"
+heroAlt: "The Soča river near Bovec"
+heroCredit: "MarcusObal / Wikimedia Commons (CC BY-SA 3.0)"
+heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_River_Panorama.jpg"
 faqs:
   - q: "Why is the Kobarid Museum famous?"
     a: "Opened in 1990, it won the Council of Europe Museum Prize in 1993 for its powerful, human telling of the WWI Soča (Isonzo) Front. It's widely regarded as one of Europe's finest war museums."

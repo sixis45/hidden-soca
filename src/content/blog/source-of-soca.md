@@ -3,6 +3,10 @@ title: "The Source of the Soča (Izvir Soče)"
 description: "Where the Soča begins — a karst spring at ~990 m below Mt Travnik in Trenta. How to reach it, and why the final scramble isn't for everyone."
 category: "Activities"
 pubDate: 2026-04-30
+heroImage: "https://upload.wikimedia.org/wikipedia/commons/5/57/So%C4%8Da_river_5.jpg"
+heroAlt: "The Soča river near Bovec"
+heroCredit: "Tiia Monto / Wikimedia Commons (CC BY-SA 3.0)"
+heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_river_5.jpg"
 faqs:
   - q: "Where does the Soča River start?"
     a: "At the Izvir Soče, a karst spring at about 990 m in the Trenta valley, at the foot of Mt Travnik (2,379 m). The river emerges from a cave pool and tumbles down into the valley."

@@ -3,6 +3,10 @@ title: "The Walk of Peace: Hiking the Isonzo Front"
 description: "A 230 km trail following the WWI Soča Front from the Alps to the Adriatic. How to walk the best Soča Valley sections — trenches, chapels and open-air museums."
 category: "WWI history"
 pubDate: 2026-04-22
+heroImage: "https://upload.wikimedia.org/wikipedia/commons/0/08/So%C4%8Da_River_Panorama.jpg"
+heroAlt: "The Soča river near Bovec"
+heroCredit: "MarcusObal / Wikimedia Commons (CC BY-SA 3.0)"
+heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_River_Panorama.jpg"
 faqs:
   - q: "How long is the Walk of Peace?"
     a: "The Walk of Peace (Pot miru) runs about 230 km, following the former Isonzo Front from the Julian Alps to the Adriatic Sea. Most visitors walk individual sections rather than the whole route."

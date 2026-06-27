@@ -3,6 +3,10 @@ title: "Best Time to Visit the Soča Valley: Month by Month"
 description: "When to come for waterfalls, rafting, swimming or quiet — a month-by-month breakdown of the Soča Valley's seasons."
 category: "Planning"
 pubDate: 2026-03-22
+heroImage: "https://upload.wikimedia.org/wikipedia/commons/0/08/So%C4%8Da_River_Panorama.jpg"
+heroAlt: "The Soča river near Bovec"
+heroCredit: "MarcusObal / Wikimedia Commons (CC BY-SA 3.0)"
+heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_River_Panorama.jpg"
 faqs:
   - q: "When are the Soča Valley waterfalls most powerful?"
     a: "Spring, roughly April to May, during snowmelt. Many karst-fed falls — including parts of Boka — shrink dramatically by late summer in a dry year."

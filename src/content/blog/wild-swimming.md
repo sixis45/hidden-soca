@@ -3,6 +3,10 @@ title: "Wild Swimming in the Soča Valley"
 description: "Where to swim in the Soča — the best emerald pools, how cold the water really is, and how to do it safely on a fast karst river."
 category: "Wild swimming"
 pubDate: 2026-03-06
+heroImage: "https://upload.wikimedia.org/wikipedia/commons/9/92/Swimming_and_sunbathing%2C_So%C4%8Da_River_near_So%C4%8Da_and_Lepena%2C_Slovenia%2C_2013.jpg"
+heroAlt: "Swimming in the Soča near Lepena"
+heroCredit: "DimiTalen / Wikimedia Commons (CC0)"
+heroCreditUrl: "https://commons.wikimedia.org/wiki/File:Swimming_and_sunbathing%2C_So%C4%8Da_River_near_So%C4%8Da_and_Lepena%2C_Slovenia%2C_2013.jpg"
 faqs:
   - q: "How cold is the Soča River?"
     a: "Cold year-round. Even in high summer the water stays bracing because it is fed by karst springs and snowmelt, not warmed by a lake. Expect a sharp gasp going in."

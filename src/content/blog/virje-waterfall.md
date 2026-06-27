@@ -3,6 +3,10 @@ title: "Virje Waterfall: The Easy One Near Bovec"
 description: "A short, family-friendly walk to Virje — a wide, gentle waterfall dropping into a vivid turquoise pool just outside Bovec."
 category: "Waterfalls"
 pubDate: 2026-04-02
+heroImage: "https://upload.wikimedia.org/wikipedia/commons/5/57/So%C4%8Da_river_5.jpg"
+heroAlt: "The Soča river near Bovec"
+heroCredit: "Tiia Monto / Wikimedia Commons (CC BY-SA 3.0)"
+heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_river_5.jpg"
 faqs:
   - q: "How hard is the walk to Virje Waterfall?"
     a: "Easy. It's a short, mostly flat path of about 10 minutes from the parking area, suitable for families and most fitness levels."

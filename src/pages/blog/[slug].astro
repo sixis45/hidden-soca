@@ -4,10 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
 }
 
 const { post } = Astro.props;
@@ -15,14 +12,12 @@ const { Content } = await post.render();
 const base = import.meta.env.BASE_URL;
 const url = new URL(`${base}blog/${post.slug}`, Astro.site).href;
 
-// Resolve related posts
 const related = (
   await Promise.all(
     post.data.related.map((slug) => getEntry("blog", slug).catch(() => undefined))
   )
 ).filter(Boolean);
 
-// JSON-LD: Article + (optional) FAQPage
 const jsonld = [
   {
     "@context": "https://schema.org",
@@ -49,29 +44,43 @@ if (post.data.faqs.length) {
 }
 
 const fmtDate = post.data.pubDate.toLocaleDateString("en-GB", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
+  year: "numeric", month: "long", day: "numeric",
 });
+
+const catColors: Record<string, string> = {
+  "Planning": "#0f7f78", "Waterfalls": "#18a89f", "Wild swimming": "#3fbfd6",
+  "Gorges": "#0f7f78", "WWI history": "#e09227", "Activities": "#7a5b3a",
+};
+const heroBg = catColors[post.data.category] ?? "#18a89f";
+const hero = post.data.heroImage;
 ---
 <BaseLayout title={`${post.data.title} — Hidden Soča`} description={post.data.description} jsonld={jsonld}>
   <article class="wrap narrow post">
+    {hero ? (
+      <figure class="hero">
+        <img src={hero} alt={post.data.heroAlt ?? post.data.title} width="1200" height="640" />
+        {post.data.heroCredit && (
+          <figcaption>
+            Photo: {post.data.heroCreditUrl ? (
+              <a href={post.data.heroCreditUrl} target="_blank" rel="noopener nofollow">{post.data.heroCredit}</a>
+            ) : post.data.heroCredit}
+          </figcaption>
+        )}
+      </figure>
+    ) : (
+      <div class="hero hero--ph" style={`background:${heroBg}`} aria-hidden="true"></div>
+    )}
     <p class="eyebrow">{post.data.category} · {fmtDate}</p>
     <h1>{post.data.title}</h1>
     <p class="lede">{post.data.description}</p>
 
-    <div class="prose">
-      <Content />
-    </div>
+    <div class="prose"><Content /></div>
 
     {post.data.faqs.length > 0 && (
       <section class="faq">
         <h2>FAQ</h2>
         {post.data.faqs.map((f) => (
-          <details>
-            <summary>{f.q}</summary>
-            <p>{f.a}</p>
-          </details>
+          <details><summary>{f.q}</summary><p>{f.a}</p></details>
         ))}
       </section>
     )}
@@ -101,16 +110,17 @@ const fmtDate = post.data.pubDate.toLocaleDateString("en-GB", {
 </BaseLayout>
 
 <style>
-  .post { padding: 2.5rem 0 1rem; }
+  .post { padding: 1.5rem 0 1rem; }
+  .hero { margin: 0 0 1.6rem; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .hero img { display: block; width: 100%; height: clamp(220px, 38vh, 380px); object-fit: cover; border-radius: var(--radius) var(--radius) 0 0; }
+  .hero--ph { height: clamp(160px, 26vh, 240px); }
+  .hero figcaption { font-size: 0.74rem; color: var(--ink-soft); background: var(--paper-2); padding: 0.4rem 0.8rem; }
+  .hero figcaption a { color: var(--soca-deep); }
   .lede { font-size: 1.2rem; color: var(--ink-soft); }
   .prose :global(p) { margin: 1.1em 0; }
   .prose :global(ul) { padding-left: 1.2rem; }
   .prose :global(li) { margin: 0.4em 0; }
-  .prose :global(blockquote) {
-    margin: 1.4em 0; padding: 0.6em 1.1em;
-    border-left: 4px solid var(--amber);
-    background: var(--paper-2); border-radius: 0 var(--radius) var(--radius) 0;
-  }
+  .prose :global(blockquote) { margin: 1.4em 0; padding: 0.6em 1.1em; border-left: 4px solid var(--amber); background: var(--paper-2); border-radius: 0 var(--radius) var(--radius) 0; }
   .related { margin-top: 2.5rem; }
   .rel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
   .rel-card { display: block; padding: 1rem 1.1rem; text-decoration: none; color: var(--ink); }

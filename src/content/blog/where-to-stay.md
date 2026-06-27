@@ -3,6 +3,10 @@ title: "Where to Stay: Bovec vs Kobarid vs Tolmin"
 description: "The three Soča Valley towns compared — adventure base, foodie middle or quiet south — so you pick the right home for your trip."
 category: "Planning"
 pubDate: 2026-03-30
+heroImage: "https://upload.wikimedia.org/wikipedia/commons/0/08/So%C4%8Da_River_Panorama.jpg"
+heroAlt: "The Soča river near Bovec"
+heroCredit: "MarcusObal / Wikimedia Commons (CC BY-SA 3.0)"
+heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_River_Panorama.jpg"
 faqs:
   - q: "Which is the best town to stay in the Soča Valley?"
     a: "Bovec for adventure and the upper valley, Kobarid for a central base with great food and WWI history, Tolmin for a quieter, cheaper south-valley stay. Most first-timers do well in Kobarid or Bovec."

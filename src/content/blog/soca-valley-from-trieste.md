@@ -3,6 +3,10 @@ title: "Visiting the Soča Valley from Trieste"
 description: "Trieste is the closest airport to the Soča Valley — about 1h10 to Kobarid. How to plan the drive, the round trip, and where to base if you're flying in and out of Trieste."
 category: "Planning"
 pubDate: 2026-05-24
+heroImage: "https://upload.wikimedia.org/wikipedia/commons/0/08/So%C4%8Da_River_Panorama.jpg"
+heroAlt: "The Soča river near Bovec"
+heroCredit: "MarcusObal / Wikimedia Commons (CC BY-SA 3.0)"
+heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_River_Panorama.jpg"
 faqs:
   - q: "How far is the Soča Valley from Trieste Airport?"
     a: "Trieste Airport (Ronchi dei Legionari, TRS) is about 1 hour 10 minutes to Kobarid (~63 km) and around 1 hour 30 minutes to Bovec (~84 km). It's the closest airport to the valley."

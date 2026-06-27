@@ -15,11 +15,13 @@ const blog = defineCollection({
     ]),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
-    /** FAQ block -> rendered + FAQPage JSON-LD */
+    heroImage: z.string().optional(),
+    heroAlt: z.string().optional(),
+    heroCredit: z.string().optional(),
+    heroCreditUrl: z.string().optional(),
     faqs: z
       .array(z.object({ q: z.string(), a: z.string() }))
       .default([]),
-    /** related post slugs */
     related: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
   }),

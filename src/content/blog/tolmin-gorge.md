@@ -3,6 +3,10 @@ title: "Tolmin Gorge: A Complete Walking Guide"
 description: "The Devil's Bridge, the Bear's Head boulder and the warm spring at the lowest point of Triglav National Park — how to walk Tolmin Gorge and what not to get wrong."
 category: "Gorges"
 pubDate: 2026-02-18
+heroImage: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Tolminka_Gorge_north_of_Tolmin_13.jpg"
+heroAlt: "The Tolminka Gorge near Tolmin"
+heroCredit: "Ajznponar / Wikimedia Commons (CC BY 4.0)"
+heroCreditUrl: "https://commons.wikimedia.org/wiki/File:Tolminka_Gorge_north_of_Tolmin_13.jpg"
 faqs:
   - q: "Can you swim in the thermal spring at Tolmin Gorge?"
     a: "No. The warm spring sits at around 20 °C — noticeably milder than the river, but it is not a bathing pool and swimming there is not permitted. It is a point of interest on the trail, not a hot spring you soak in."

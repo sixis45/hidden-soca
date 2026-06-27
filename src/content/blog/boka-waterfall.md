@@ -3,6 +3,10 @@ title: "Boka Waterfall: Slovenia's Highest Falls"
 description: "How to find and photograph Boka, the 144 m giant near Bovec — the tallest waterfall in Slovenia, at its most powerful in spring snowmelt."
 category: "Waterfalls"
 pubDate: 2026-02-10
+heroImage: "https://upload.wikimedia.org/wikipedia/commons/0/08/So%C4%8Da_River_Panorama.jpg"
+heroAlt: "The Soča river near Bovec"
+heroCredit: "MarcusObal / Wikimedia Commons (CC BY-SA 3.0)"
+heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_River_Panorama.jpg"
 faqs:
   - q: "How tall is Boka Waterfall?"
     a: "Boka drops about 144 m in its main fall, making it the highest waterfall in Slovenia. A second, lower tier continues below."

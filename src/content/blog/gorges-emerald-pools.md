@@ -3,6 +3,10 @@ title: "Gorges & Emerald Pools of the Soča"
 description: "The Great Gorge, Tolmin Gorge and the deep emerald canyons where the Soča is at its most intense — what to see and how to walk them safely."
 category: "Gorges"
 pubDate: 2026-03-10
+heroImage: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Tolminka_Gorge_north_of_Tolmin_13.jpg"
+heroAlt: "The Tolminka Gorge near Tolmin"
+heroCredit: "Ajznponar / Wikimedia Commons (CC BY 4.0)"
+heroCreditUrl: "https://commons.wikimedia.org/wiki/File:Tolminka_Gorge_north_of_Tolmin_13.jpg"
 faqs:
   - q: "What is the Great Gorge of the Soča?"
     a: "Velika korita — a canyon up to about 15 m deep and 750 m long near Lepena, where the river squeezes into a narrow emerald slot crossed by footbridges."

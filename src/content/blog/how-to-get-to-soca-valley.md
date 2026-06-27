@@ -3,6 +3,10 @@ title: "How to Get to the Soča Valley"
 description: "Driving routes, the Vršič and Predel passes, the car train through the tunnel, and why you'll want your own wheels once you arrive."
 category: "Planning"
 pubDate: 2026-03-26
+heroImage: "https://upload.wikimedia.org/wikipedia/commons/0/08/So%C4%8Da_River_Panorama.jpg"
+heroAlt: "The Soča river near Bovec"
+heroCredit: "MarcusObal / Wikimedia Commons (CC BY-SA 3.0)"
+heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_River_Panorama.jpg"
 faqs:
   - q: "What is the nearest airport to the Soča Valley?"
     a: "Ljubljana (Slovenia) is the most common gateway. Trieste, Venice (Italy) and Klagenfurt (Austria) are also within driving range depending on your route."
