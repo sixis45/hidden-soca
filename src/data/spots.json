@@ -10,15 +10,15 @@
     { "name": "Kozjak Waterfall", "type": "waterfalls", "lat": 46.261258, "lng": 13.591386, "blurb": "15 m fall in a cathedral-like cave chamber near Kobarid. 25–30 min walk from the Napoleon Bridge.", "post": "kozjak-waterfall" },
     { "name": "Boka Waterfall", "type": "waterfalls", "lat": 46.322019, "lng": 13.482349, "blurb": "At 144 m, the highest waterfall in Slovenia. Thunderous at snowmelt; viewable from the road bridge.", "post": "boka-waterfall" },
     { "name": "Virje Waterfall", "type": "waterfalls", "lat": 46.335134, "lng": 13.513998, "blurb": "Wide, gentle fall into a turquoise pool near Bovec. Short, easy access.", "post": "virje-waterfall" },
-    { "name": "Source of the Soča (Izvir Soče)", "type": "viewpoints", "lat": 46.4108, "lng": 13.7233, "blurb": "Where the river begins — a karst spring at ~990 m below Mt Travnik. Final approach is a steep, cabled scramble.", "post": "source-of-soca" },
-    { "name": "Tolmin Gorge", "type": "gorges", "lat": 46.1992, "lng": 13.741, "blurb": "The lowest point of Triglav National Park. Devil's Bridge, Bear's Head and the Thermal Spring (20 °C, not for bathing).", "post": "tolmin-gorge" },
-    { "name": "Velika korita (Great Gorge of the Soča)", "type": "gorges", "lat": 46.337, "lng": 13.646, "blurb": "Up to 15 m deep, 750 m long emerald canyon near Lepena. Footbridges and viewpoints.", "post": "velika-korita" },
+    { "name": "Source of the Soča (Izvir Soče)", "type": "viewpoints", "lat": 46.410614, "lng": 13.722203, "blurb": "Where the river begins — a karst spring at ~990 m below Mt Travnik. Final approach is a steep, cabled scramble.", "post": "source-of-soca" },
+    { "name": "Tolmin Gorge", "type": "gorges", "lat": 46.198028, "lng": 13.740154, "blurb": "The lowest point of Triglav National Park. Devil's Bridge, Bear's Head and the Thermal Spring (20 °C, not for bathing).", "post": "tolmin-gorge" },
+    { "name": "Velika korita (Great Gorge of the Soča)", "type": "gorges", "lat": 46.33721, "lng": 13.645934, "blurb": "Up to 15 m deep, 750 m long emerald canyon near Lepena. Footbridges and viewpoints.", "post": "velika-korita" },
     { "name": "Napoleon Bridge pools (Kobarid)", "type": "swimming", "lat": 46.248481, "lng": 13.586358, "blurb": "Iconic stone bridge over deep emerald water. Cold year-round — limestone rock flour gives the colour.", "post": "wild-swimming" },
     { "name": "Otona / Trnovo pools", "type": "swimming", "lat": 46.273561, "lng": 13.573936, "blurb": "Calmer reservoir-fed stretches popular for a summer swim. Always check current and depth first.", "post": "wild-swimming" },
     { "name": "Kobarid Museum", "type": "wwi", "lat": 46.246709, "lng": 13.580902, "blurb": "Award-winning museum on the 1917 Battle of Caporetto (Isonzo Front). Start here before the trails.", "post": "kobarid-museum" },
     { "name": "Italian Charnel House (Kobarid)", "type": "wwi", "lat": 46.2471, "lng": 13.5837, "blurb": "Octagonal ossuary on Gradič hill holding the remains of over 7,000 Italian soldiers.", "post": "wwi-sites" },
     { "name": "Kolovrat Outdoor Museum", "type": "wwi", "lat": 46.186666, "lng": 13.66088, "blurb": "Restored ridge-top trenches and tunnels with sweeping views into Italy. Often empty.", "post": "walk-of-peace" },
-    { "name": "Mangart Saddle", "type": "viewpoints", "lat": 46.4373, "lng": 13.6418, "blurb": "The highest road in Slovenia (~2,055 m). Toll road; alpine panorama over the Julian Alps.", "post": "mangart-road" },
-    { "name": "Vršič Pass", "type": "viewpoints", "lat": 46.4356, "lng": 13.7444, "blurb": "Slovenia's highest mountain pass (1,611 m), 50 hairpins, the Russian Chapel on the north side.", "post": "vrsic-pass" }
+    { "name": "Mangart Saddle", "type": "viewpoints", "lat": 46.443914, "lng": 13.642148, "blurb": "The highest road in Slovenia (~2,055 m). Toll road; alpine panorama over the Julian Alps.", "post": "mangart-road" },
+    { "name": "Vršič Pass", "type": "viewpoints", "lat": 46.432897, "lng": 13.743071, "blurb": "Slovenia's highest mountain pass (1,611 m), 50 hairpins, the Russian Chapel on the north side.", "post": "vrsic-pass" }
   ]
 }
