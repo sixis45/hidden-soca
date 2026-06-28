@@ -3,10 +3,6 @@ title: "Driving the Vršič Pass: Slovenia's Highest Road Pass"
 description: "50 hairpin bends, the Russian Chapel, and the 1,611 m crossing into the Soča Valley. How to drive Vršič, when it's open, and what to stop for."
 category: "Activities"
 pubDate: 2026-04-10
-heroImage: "https://upload.wikimedia.org/wikipedia/commons/5/57/So%C4%8Da_river_5.jpg"
-heroAlt: "The Soča river near Bovec"
-heroCredit: "Tiia Monto / Wikimedia Commons (CC BY-SA 3.0)"
-heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_river_5.jpg"
 faqs:
   - q: "How high is the Vršič Pass and how many hairpins?"
     a: "Vršič tops out at 1,611 m — the highest mountain pass in Slovenia — and is climbed via 50 hairpin bends: 24 on the Kranjska Gora (north) side and 26 on the Trenta (south) side."

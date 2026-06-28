@@ -3,43 +3,27 @@ const base = import.meta.env.BASE_URL;
 ---
 <header class="site-header">
   <div class="wrap bar">
-    <a class="mark" href={base}>HIDDEN <strong>SOČA</strong></a>
+    <a class="mark" href={base}>HIDDEN&nbsp;<strong>SOČA</strong></a>
     <nav>
       <a href={base}>Map</a>
-      <a href={`${base}blog`}>Blog</a>
-      <a class="btn btn-primary" href={`${base}#map`}>Open the map</a>
+      <a href={`${base}blog`}>Guides</a>
     </nav>
   </div>
 </header>
 
 <style>
   .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(243, 239, 230, 0.88);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; z-index: 1200;
+    background: var(--soca);
+    border-bottom: 2px solid rgba(0,0,0,0.10);
   }
-  .bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-  }
+  .bar { display: flex; align-items: center; justify-content: space-between; height: 60px; }
   .mark {
-    font-family: var(--font-mono);
-    text-decoration: none;
-    color: var(--ink);
-    letter-spacing: 0.04em;
-    font-weight: 500;
+    font-family: var(--font-mono); text-decoration: none; color: #fff;
+    letter-spacing: 0.05em; font-weight: 500; font-size: 1.05rem;
   }
-  .mark strong { color: var(--soca-deep); }
-  nav { display: flex; align-items: center; gap: 1.25rem; }
-  nav a { text-decoration: none; color: var(--ink); font-weight: 600; }
-  nav a:hover { color: var(--soca-deep); }
-  nav .btn-primary { color: #fff; }
-  @media (max-width: 560px) {
-    nav a:not(.btn) { display: none; }
-  }
+  .mark strong { color: #0a3d3a; font-weight: 700; }
+  nav { display: flex; gap: 1.25rem; }
+  nav a { text-decoration: none; color: #fff; font-weight: 700; }
+  nav a:hover { color: #0a3d3a; }
 </style>

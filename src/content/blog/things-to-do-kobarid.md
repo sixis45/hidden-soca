@@ -3,10 +3,6 @@ title: "Things to Do in Kobarid: History, Food & Emerald Water"
 description: "Kobarid blends WWI history, a standout food scene and the Soča's prettiest water. The award-winning museum, Kozjak Waterfall, the Napoleon Bridge and more."
 category: "Planning"
 pubDate: 2026-05-12
-heroImage: "https://upload.wikimedia.org/wikipedia/commons/0/08/So%C4%8Da_River_Panorama.jpg"
-heroAlt: "The Soča river near Bovec"
-heroCredit: "MarcusObal / Wikimedia Commons (CC BY-SA 3.0)"
-heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_River_Panorama.jpg"
 faqs:
   - q: "What is Kobarid known for?"
     a: "The award-winning Kobarid Museum on the WWI Isonzo Front, the emerald Soča at the Napoleon Bridge, Kozjak Waterfall, and a reputation as the valley's gastronomic centre."

@@ -3,10 +3,6 @@ title: "Where to Eat in the Soča Valley"
 description: "From Kobarid's celebrated kitchens to mountain-hut plates and local trout — how to eat well across the Soča Valley, and what dishes to look for."
 category: "Planning"
 pubDate: 2026-05-20
-heroImage: "https://upload.wikimedia.org/wikipedia/commons/0/08/So%C4%8Da_River_Panorama.jpg"
-heroAlt: "The Soča river near Bovec"
-heroCredit: "MarcusObal / Wikimedia Commons (CC BY-SA 3.0)"
-heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_River_Panorama.jpg"
 faqs:
   - q: "Where is the best food in the Soča Valley?"
     a: "Kobarid is the valley's gastronomic centre, with everything from internationally recognised fine dining to honest local cooking. Bovec and Tolmin add solid casual options and mountain-hut food."

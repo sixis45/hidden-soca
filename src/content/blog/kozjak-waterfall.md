@@ -3,10 +3,6 @@ title: "Kozjak Waterfall: The Cave-Chamber Falls Near Kobarid"
 description: "A complete guide to Slap Kozjak — the 25–30 minute walk, what to expect in the amphitheatre chamber, and how to combine it with the Napoleon Bridge."
 category: "Waterfalls"
 pubDate: 2026-02-14
-heroImage: "https://upload.wikimedia.org/wikipedia/commons/7/7f/The_Kozjak_Stream_Waterfalls%2C_Kobarid%2C_Slovenia.jpg"
-heroAlt: "Kozjak Waterfall near Kobarid"
-heroCredit: "Mark Iverson / Wikimedia Commons (CC BY-SA 2.0)"
-heroCreditUrl: "https://commons.wikimedia.org/wiki/File:The_Kozjak_Stream_Waterfalls%2C_Kobarid%2C_Slovenia.jpg"
 faqs:
   - q: "How long is the walk to Kozjak Waterfall?"
     a: "About 25–30 minutes each way from the car park near the Napoleon Bridge, on a mostly easy trail with a few wooden walkways and steps near the end."

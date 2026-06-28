@@ -3,10 +3,6 @@ title: "The Perfect 3-Day Soča Valley Itinerary"
 description: "A practical 3-day plan covering Bovec, Kobarid and Tolmin — waterfalls, gorges, a swim and the WWI front, without rushing."
 category: "Planning"
 pubDate: 2026-03-18
-heroImage: "https://upload.wikimedia.org/wikipedia/commons/0/08/So%C4%8Da_River_Panorama.jpg"
-heroAlt: "The Soča river near Bovec"
-heroCredit: "MarcusObal / Wikimedia Commons (CC BY-SA 3.0)"
-heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_River_Panorama.jpg"
 faqs:
   - q: "Is 3 days enough for the Soča Valley?"
     a: "Three days is enough to see the highlights across Bovec, Kobarid and Tolmin without rushing. A week lets you add longer hikes, more remote falls and the high passes."

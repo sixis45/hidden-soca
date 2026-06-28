@@ -3,10 +3,6 @@ title: "Canyoning & Ziplining in Bovec"
 description: "Beyond rafting — Bovec's other adrenaline: canyoning down rock chutes and ziplining across a side valley. Seasons, what to expect, and how to book safely."
 category: "Activities"
 pubDate: 2026-05-04
-heroImage: "https://upload.wikimedia.org/wikipedia/commons/5/57/So%C4%8Da_river_5.jpg"
-heroAlt: "The Soča river near Bovec"
-heroCredit: "Tiia Monto / Wikimedia Commons (CC BY-SA 3.0)"
-heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_river_5.jpg"
 faqs:
   - q: "What is canyoning in the Soča Valley like?"
     a: "Guided descents of narrow gorges by sliding down water-worn rock chutes, jumping into pools and abseiling small drops. Wetsuits and helmets are provided; no prior experience is needed for beginner canyons."

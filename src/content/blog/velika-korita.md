@@ -3,10 +3,6 @@ title: "Velika Korita: The Great Gorge of the Soča"
 description: "The Soča's deepest, most dramatic canyon — up to 15 m deep and 750 m long near Lepena. How to walk the footbridges and why you don't swim here."
 category: "Gorges"
 pubDate: 2026-04-06
-heroImage: "https://upload.wikimedia.org/wikipedia/commons/5/57/So%C4%8Da_river_5.jpg"
-heroAlt: "The Soča river near Bovec"
-heroCredit: "Tiia Monto / Wikimedia Commons (CC BY-SA 3.0)"
-heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_river_5.jpg"
 faqs:
   - q: "How deep is Velika korita?"
     a: "The Great Gorge of the Soča is up to about 15 m deep and roughly 750 m long, where the river squeezes into a narrow emerald slot."

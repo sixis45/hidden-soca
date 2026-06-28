@@ -3,10 +3,6 @@ title: "The Soča Trail: Hiking from the Source to Bovec"
 description: "A 25 km riverside trail from the source of the Soča to Bovec — suspension bridges, gorges and emerald pools, walkable in sections or as a full day."
 category: "Activities"
 pubDate: 2026-04-26
-heroImage: "https://upload.wikimedia.org/wikipedia/commons/5/57/So%C4%8Da_river_5.jpg"
-heroAlt: "The Soča river near Bovec"
-heroCredit: "Tiia Monto / Wikimedia Commons (CC BY-SA 3.0)"
-heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_river_5.jpg"
 faqs:
   - q: "How long is the Soča Trail?"
     a: "About 25 km (the Soška pot), running from near the source of the Soča in Trenta down to Bovec. It can be done in a long day or split into easy sections."

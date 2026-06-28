@@ -3,10 +3,6 @@ title: "The Mangart Road: Slovenia's Highest Drive"
 description: "At 2,055 m, the Mangart road is the highest you can drive in Slovenia — a 12 km toll road of tunnels and switchbacks to a jaw-dropping alpine saddle."
 category: "Activities"
 pubDate: 2026-04-14
-heroImage: "https://upload.wikimedia.org/wikipedia/commons/5/57/So%C4%8Da_river_5.jpg"
-heroAlt: "The Soča river near Bovec"
-heroCredit: "Tiia Monto / Wikimedia Commons (CC BY-SA 3.0)"
-heroCreditUrl: "https://commons.wikimedia.org/wiki/File:So%C4%8Da_river_5.jpg"
 faqs:
   - q: "How high is the Mangart road?"
     a: "The Mangart road reaches about 2,055 m, making it the highest-lying road in Slovenia. It climbs roughly 980 m over 12 km through five rock tunnels."

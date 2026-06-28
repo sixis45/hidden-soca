@@ -1,90 +1,255 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Map from "../components/Map.astro";
+import data from "../data/spots.json";
 
+const { categories, spots } = data;
 const base = import.meta.env.BASE_URL;
-const posts = (await getCollection("blog"))
-  .sort((a, b) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate))
-  .slice(0, 6);
-
-const catColors: Record<string, string> = {
-  "Planning": "#0f7f78", "Waterfalls": "#18a89f", "Wild swimming": "#3fbfd6",
-  "Gorges": "#0f7f78", "WWI history": "#e09227", "Activities": "#7a5b3a",
-};
+const numbered = spots.map((s, i) => ({ ...s, n: i + 1 }));
+const catColor: Record<string, string> = Object.fromEntries(
+  categories.map((c) => [c.id, c.color])
+);
 
 const jsonld = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Hidden Soča",
-    url: "https://hiddensoca.com",
+    url: "https://hidden-soca.pages.dev",
     description: "Off-the-beaten-path guide to the Soča Valley and western Slovenia.",
   },
 ];
 ---
 <BaseLayout title="Hidden Soča — the off-the-beaten-path Soča Valley guide" jsonld={jsonld}>
-  <section class="hero">
-    <div class="wrap">
-      <p class="eyebrow">Western Slovenia · Soča Valley</p>
-      <h1>The Soča Valley, minus the crowds.</h1>
-      <p class="lede">
-        Hidden waterfalls, emerald gorges, wild swimming holes and forgotten WWI
-        trenches — mapped and ground-truthed by someone who lives in the valley.
-      </p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#map">Open the map</a>
-        <a class="btn btn-ghost" href={`${base}blog`}>Read the guides</a>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <section class="otg" data-view="list">
+    <aside class="map-col">
+      <div id="map" role="application" aria-label="Map of hidden spots in the Soča Valley"></div>
+    </aside>
+
+    <div class="list-col">
+      <div class="intro">
+        <p class="eyebrow">Western Slovenia · Soča Valley</p>
+        <h1>Hidden Soča</h1>
+        <p class="lede">
+          Off-the-beaten-path waterfalls, gorges, wild swimming and forgotten WWI
+          trenches — mapped and ground-truthed by someone who lives in the valley.
+          Every number on the list is a pin on the map.
+        </p>
+        <div class="filters" id="filters">
+          <button class="chip is-active" data-cat="all">All</button>
+          {categories.map((c) => (
+            <button class="chip" data-cat={c.id} style={`--chip:${c.color}`}>
+              <span class="dot"></span>{c.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="cards" id="cards">
+        {numbered.map((s) => (
+          <a class="place" data-n={s.n} data-cat={s.type} data-lat={s.lat} data-lng={s.lng} href={`${base}blog/${s.post}`}>
+            <div class="photo">
+              <span class="ph">
+                <span class="ph-cam">▢</span>
+                <span class="ph-txt">Photo coming soon</span>
+              </span>
+              <span class="badge" style={`background:${catColor[s.type]}`} role="button" aria-label={`Show ${s.name} on the map`}>{s.n}</span>
+            </div>
+            <div class="place-body">
+              <h3>{s.name}</h3>
+              <p>{s.blurb}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="more">
+        <a class="btn-link" href={`${base}blog`}>Read all 26 guides →</a>
       </div>
     </div>
   </section>
 
-  <section id="map" class="wrap map-section">
-    <Map />
-    <p class="map-note mono">
-      Pins grouped by type · tiles by OpenTopoMap · coordinates verified on the ground (work in progress).
-    </p>
-  </section>
+  <div class="view-toggle" id="viewToggle" aria-label="Switch between list and map">
+    <button data-view="list" class="is-active">List</button>
+    <button data-view="map">Map</button>
+  </div>
 
-  <section class="wrap guides">
-    <div class="guides-head">
-      <h2>Latest guides</h2>
-      <a href={`${base}blog`}>All posts →</a>
-    </div>
-    <div class="grid">
-      {posts.map((p) => (
-        <a class="card post-card" href={`${base}blog/${p.slug}`}>
-          {p.data.heroImage ? (
-            <img class="thumb" src={p.data.heroImage} alt="" loading="lazy" width="400" height="220" />
-          ) : (
-            <span class="thumb thumb--ph" style={`background:${catColors[p.data.category] ?? '#18a89f'}`}></span>
-          )}
-          <span class="card-body">
-            <span class="eyebrow">{p.data.category}</span>
-            <h3>{p.data.title}</h3>
-            <p>{p.data.description}</p>
-          </span>
-        </a>
-      ))}
-    </div>
-  </section>
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+    is:inline
+  ></script>
+
+  <script define:vars={{ spots: numbered, catColor, base }} is:inline>
+    function init() {
+      if (typeof L === "undefined") return setTimeout(init, 60);
+      const otg = document.querySelector(".otg");
+      const map = L.map("map", { scrollWheelZoom: false }).setView([46.28, 13.62], 11);
+      L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
+        maxZoom: 17,
+        attribution:
+          'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, ' +
+          '<a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)',
+      }).addTo(map);
+
+      const markers = {};
+      const bounds = [];
+      spots.forEach((s) => {
+        const color = catColor[s.type] || "#18a89f";
+        const icon = L.divIcon({
+          className: "numpin",
+          html: `<span style="background:${color}">${s.n}</span>`,
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
+          popupAnchor: [0, -14],
+        });
+        const m = L.marker([s.lat, s.lng], { icon }).addTo(map);
+        m.bindPopup(`<strong>${s.n}. ${s.name}</strong><br>${s.blurb}<br><a href="${base}blog/${s.post}">Read the guide →</a>`);
+        markers[s.n] = m;
+        bounds.push([s.lat, s.lng]);
+      });
+      if (bounds.length) map.fitBounds(bounds, { padding: [40, 40] });
+
+      function setView(v) {
+        otg.setAttribute("data-view", v);
+        document.querySelectorAll("#viewToggle button").forEach((b) =>
+          b.classList.toggle("is-active", b.dataset.view === v)
+        );
+        setTimeout(() => map.invalidateSize(), 220);
+      }
+
+      const filters = document.getElementById("filters");
+      filters.addEventListener("click", (e) => {
+        const b = e.target.closest(".chip");
+        if (!b) return;
+        filters.querySelectorAll(".chip").forEach((x) => x.classList.remove("is-active"));
+        b.classList.add("is-active");
+        const cat = b.dataset.cat;
+        document.querySelectorAll(".place").forEach((p) => {
+          p.style.display = cat === "all" || p.dataset.cat === cat ? "" : "none";
+        });
+        spots.forEach((s) => {
+          const show = cat === "all" || s.type === cat;
+          if (show) markers[s.n].addTo(map);
+          else map.removeLayer(markers[s.n]);
+        });
+      });
+
+      document.querySelectorAll(".place").forEach((p) => {
+        const n = +p.dataset.n;
+        p.addEventListener("mouseenter", () => markers[n]?._icon?.classList.add("active"));
+        p.addEventListener("mouseleave", () => markers[n]?._icon?.classList.remove("active"));
+        const badge = p.querySelector(".badge");
+        if (badge) {
+          badge.addEventListener("click", (ev) => {
+            ev.preventDefault();
+            map.setView([+p.dataset.lat, +p.dataset.lng], 14);
+            markers[n].openPopup();
+            setView("map");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        }
+      });
+
+      document.getElementById("viewToggle").addEventListener("click", (e) => {
+        const b = e.target.closest("button");
+        if (b) setView(b.dataset.view);
+      });
+    }
+    init();
+  </script>
 </BaseLayout>
 
 <style>
-  .hero { background: radial-gradient(120% 80% at 80% -10%, rgba(24, 168, 159, 0.18), transparent 60%), var(--paper); padding: 3.5rem 0 2rem; }
-  .lede { font-size: 1.2rem; max-width: 56ch; color: var(--ink-soft); }
-  .hero-cta { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
-  .map-section { padding-top: 1rem; scroll-margin-top: 72px; }
-  .map-note { color: var(--ink-soft); font-size: 0.78rem; margin-top: 0.7rem; }
-  .guides { padding: 2.5rem 0 1rem; }
-  .guides-head { display: flex; align-items: baseline; justify-content: space-between; }
-  .guides-head a { text-decoration: none; font-weight: 700; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.1rem; margin-top: 1.2rem; }
-  .post-card { display: block; padding: 0; overflow: hidden; text-decoration: none; color: var(--ink); transition: transform 0.12s ease, box-shadow 0.12s ease; }
-  .post-card:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(31,58,44,0.12); }
-  .thumb { display: block; width: 100%; height: 150px; object-fit: cover; }
-  .thumb--ph { height: 90px; }
-  .card-body { display: block; padding: 1.1rem 1.3rem 1.3rem; }
-  .post-card h3 { margin: 0.3rem 0 0.4rem; }
-  .post-card p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+  .otg {
+    display: grid;
+    grid-template-columns: 44% 56%;
+    background: var(--soca);
+    min-height: calc(100vh - 60px);
+  }
+  .map-col { position: sticky; top: 60px; height: calc(100vh - 60px); }
+  #map { width: 100%; height: 100%; z-index: 1; background: var(--paper-2); }
+
+  .list-col { padding: 1.4rem clamp(1rem, 2.6vw, 2.4rem) 3.5rem; }
+  .intro { color: #fff; padding: 0.6rem 0 1.4rem; }
+  .intro .eyebrow { color: rgba(255,255,255,0.85); }
+  .intro h1 { color: #fff; font-size: clamp(2.4rem, 5vw, 3.6rem); margin: 0.15em 0 0.2em; }
+  .intro .lede { color: #fff; font-size: 1.08rem; max-width: 54ch; opacity: 0.96; }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.1rem; }
+  .chip {
+    --chip: #0a3d3a;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font: 700 0.82rem/1 var(--font-sans); color: var(--ink);
+    background: #fff; border: 1px solid transparent; border-radius: 999px;
+    padding: 0.42rem 0.8rem; cursor: pointer;
+  }
+  .chip .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--chip); }
+  .chip.is-active { background: #0a3d3a; color: #fff; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+  .place {
+    background: #fff; border-radius: 14px; overflow: hidden; text-decoration: none;
+    color: var(--ink); box-shadow: var(--shadow); display: flex; flex-direction: column;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .place:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(10,61,58,0.22); }
+  .photo { position: relative; aspect-ratio: 4 / 3; background: var(--paper-2); }
+  .photo .ph {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 0.35rem;
+    color: var(--ink-soft); border: 2px dashed rgba(31,58,44,0.18);
+    border-radius: 14px 14px 0 0;
+  }
+  .ph-cam { font-size: 1.6rem; color: var(--soca-deep); line-height: 1; }
+  .ph-txt { font-size: 0.74rem; letter-spacing: 0.02em; }
+  .badge {
+    position: absolute; top: 8px; left: 8px; min-width: 26px; height: 26px; padding: 0 7px;
+    border-radius: 7px; color: #fff; font: 700 0.9rem/26px var(--font-mono);
+    text-align: center; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+  .place-body { padding: 0.8rem 0.95rem 1rem; }
+  .place-body h3 { margin: 0 0 0.25rem; font-size: 1.05rem; }
+  .place-body p { margin: 0; color: var(--ink-soft); font-size: 0.88rem; line-height: 1.45; }
+
+  .more { margin-top: 1.6rem; }
+  .btn-link { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+  .view-toggle { display: none; }
+
+  :global(.numpin span) {
+    display: flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 50%; color: #fff;
+    font: 700 13px/1 var(--font-mono); border: 2px solid #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.45);
+  }
+  :global(.numpin.active span) { transform: scale(1.25); box-shadow: 0 0 0 5px rgba(24,168,159,0.4); }
+  :global(.leaflet-popup-content) { font-family: var(--font-sans); line-height: 1.45; }
+  :global(.leaflet-popup-content a) { color: var(--soca-deep); font-weight: 700; }
+
+  @media (max-width: 900px) {
+    .otg { grid-template-columns: 1fr; min-height: auto; }
+    .map-col { position: fixed; inset: 60px 0 0 0; height: auto; z-index: 600; }
+    .otg[data-view="list"] .map-col { display: none; }
+    .otg[data-view="map"] .list-col { display: none; }
+    .cards { grid-template-columns: 1fr 1fr; }
+    .view-toggle {
+      display: flex; position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
+      z-index: 1300; background: #fff; border-radius: 999px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25); padding: 4px;
+    }
+    .view-toggle button {
+      border: none; background: none; padding: 0.55rem 1.3rem; border-radius: 999px;
+      font: 700 0.95rem var(--font-sans); color: var(--ink); cursor: pointer;
+    }
+    .view-toggle button.is-active { background: var(--soca); color: #fff; }
+  }
+  @media (max-width: 520px) { .cards { grid-template-columns: 1fr; } }
 </style>

@@ -46,12 +46,6 @@ if (post.data.faqs.length) {
 const fmtDate = post.data.pubDate.toLocaleDateString("en-GB", {
   year: "numeric", month: "long", day: "numeric",
 });
-
-const catColors: Record<string, string> = {
-  "Planning": "#0f7f78", "Waterfalls": "#18a89f", "Wild swimming": "#3fbfd6",
-  "Gorges": "#0f7f78", "WWI history": "#e09227", "Activities": "#7a5b3a",
-};
-const heroBg = catColors[post.data.category] ?? "#18a89f";
 const hero = post.data.heroImage;
 ---
 <BaseLayout title={`${post.data.title} — Hidden Soča`} description={post.data.description} jsonld={jsonld}>
@@ -68,7 +62,9 @@ const hero = post.data.heroImage;
         )}
       </figure>
     ) : (
-      <div class="hero hero--ph" style={`background:${heroBg}`} aria-hidden="true"></div>
+      <div class="hero hero--ph" aria-hidden="true">
+        <span class="ph"><span class="ph-cam">▢</span><span class="ph-txt">Photo coming soon</span></span>
+      </div>
     )}
     <p class="eyebrow">{post.data.category} · {fmtDate}</p>
     <h1>{post.data.title}</h1>
@@ -88,7 +84,7 @@ const hero = post.data.heroImage;
     <div class="cta-box">
       <h3>See every spot on the map</h3>
       <p>All the places in this guide are pinned and filterable by type.</p>
-      <a class="btn btn-primary" href={`${base}#map`}>Open the map</a>
+      <a class="btn btn-primary" href={base}>Open the map</a>
     </div>
 
     {related.length > 0 && (
@@ -112,10 +108,17 @@ const hero = post.data.heroImage;
 <style>
   .post { padding: 1.5rem 0 1rem; }
   .hero { margin: 0 0 1.6rem; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
-  .hero img { display: block; width: 100%; height: clamp(220px, 38vh, 380px); object-fit: cover; border-radius: var(--radius) var(--radius) 0 0; }
-  .hero--ph { height: clamp(160px, 26vh, 240px); }
+  .hero img { display: block; width: 100%; height: clamp(220px, 38vh, 380px); object-fit: cover; }
   .hero figcaption { font-size: 0.74rem; color: var(--ink-soft); background: var(--paper-2); padding: 0.4rem 0.8rem; }
   .hero figcaption a { color: var(--soca-deep); }
+  .hero--ph {
+    height: clamp(190px, 30vh, 300px); background: var(--paper-2);
+    border: 2px dashed rgba(31,58,44,0.18);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero--ph .ph { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: var(--ink-soft); }
+  .hero--ph .ph-cam { font-size: 2rem; color: var(--soca-deep); line-height: 1; }
+  .hero--ph .ph-txt { font-size: 0.8rem; }
   .lede { font-size: 1.2rem; color: var(--ink-soft); }
   .prose :global(p) { margin: 1.1em 0; }
   .prose :global(ul) { padding-left: 1.2rem; }

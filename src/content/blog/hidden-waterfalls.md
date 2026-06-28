@@ -3,10 +3,6 @@ title: "6 Hidden Waterfalls in the Soča Valley"
 description: "Beyond Kozjak and Boka — lesser-known falls in the Soča Valley worth the detour, with honest notes on access and timing."
 category: "Waterfalls"
 pubDate: 2026-03-02
-heroImage: "https://upload.wikimedia.org/wikipedia/commons/7/7f/The_Kozjak_Stream_Waterfalls%2C_Kobarid%2C_Slovenia.jpg"
-heroAlt: "Kozjak Waterfall near Kobarid"
-heroCredit: "Mark Iverson / Wikimedia Commons (CC BY-SA 2.0)"
-heroCreditUrl: "https://commons.wikimedia.org/wiki/File:The_Kozjak_Stream_Waterfalls%2C_Kobarid%2C_Slovenia.jpg"
 faqs:
   - q: "What is the highest waterfall in the Soča Valley?"
     a: "Boka, at about 144 m, which is also the highest waterfall in Slovenia. It is most powerful during spring snowmelt."
