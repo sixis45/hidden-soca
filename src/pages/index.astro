@@ -100,30 +100,32 @@ const jsonld = [
       }).addTo(map);
 
       const markers = {};
-      const bounds = [];
+      const pts = [];
       spots.forEach((s) => {
         const color = catColor[s.type] || "#18a89f";
         const icon = L.divIcon({
           className: "numpin",
           html: `<span style="background:${color}">${s.n}</span>`,
-          iconSize: [30, 30],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -14],
+          iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -14],
         });
         const m = L.marker([s.lat, s.lng], { icon }).addTo(map);
         m.bindPopup(`<strong>${s.n}. ${s.name}</strong><br>${s.blurb}<br><a href="${base}blog/${s.post}">Read the guide →</a>`);
         markers[s.n] = m;
-        bounds.push([s.lat, s.lng]);
+        pts.push([s.lat, s.lng]);
       });
-      if (bounds.length) map.fitBounds(bounds, { padding: [40, 40] });
+      const allBounds = pts.length ? L.latLngBounds(pts) : null;
+      function fitAll() { if (allBounds) map.fitBounds(allBounds, { padding: [40, 40] }); }
 
       function setView(v) {
         otg.setAttribute("data-view", v);
         document.querySelectorAll("#viewToggle button").forEach((b) =>
           b.classList.toggle("is-active", b.dataset.view === v)
         );
-        setTimeout(() => map.invalidateSize(), 220);
+        setTimeout(() => map.invalidateSize(), 60);
       }
+
+      // initial framing once the container has a real size
+      map.whenReady(() => setTimeout(() => { map.invalidateSize(); fitAll(); }, 160));
 
       const filters = document.getElementById("filters");
       filters.addEventListener("click", (e) => {
@@ -135,32 +137,40 @@ const jsonld = [
         document.querySelectorAll(".place").forEach((p) => {
           p.style.display = cat === "all" || p.dataset.cat === cat ? "" : "none";
         });
+        const shown = [];
         spots.forEach((s) => {
           const show = cat === "all" || s.type === cat;
-          if (show) markers[s.n].addTo(map);
+          if (show) { markers[s.n].addTo(map); shown.push([s.lat, s.lng]); }
           else map.removeLayer(markers[s.n]);
         });
+        if (shown.length) map.fitBounds(L.latLngBounds(shown), { padding: [50, 50], maxZoom: 13 });
       });
 
       document.querySelectorAll(".place").forEach((p) => {
         const n = +p.dataset.n;
-        p.addEventListener("mouseenter", () => markers[n]?._icon?.classList.add("active"));
-        p.addEventListener("mouseleave", () => markers[n]?._icon?.classList.remove("active"));
+        p.addEventListener("mouseenter", () => markers[n] && markers[n]._icon && markers[n]._icon.classList.add("active"));
+        p.addEventListener("mouseleave", () => markers[n] && markers[n]._icon && markers[n]._icon.classList.remove("active"));
         const badge = p.querySelector(".badge");
         if (badge) {
           badge.addEventListener("click", (ev) => {
             ev.preventDefault();
-            map.setView([+p.dataset.lat, +p.dataset.lng], 14);
-            markers[n].openPopup();
+            ev.stopPropagation();
             setView("map");
             window.scrollTo({ top: 0, behavior: "smooth" });
+            setTimeout(() => {
+              map.invalidateSize();
+              map.setView([+p.dataset.lat, +p.dataset.lng], 14);
+              markers[n].openPopup();
+            }, 160);
           });
         }
       });
 
       document.getElementById("viewToggle").addEventListener("click", (e) => {
         const b = e.target.closest("button");
-        if (b) setView(b.dataset.view);
+        if (!b) return;
+        setView(b.dataset.view);
+        if (b.dataset.view === "map") setTimeout(() => { map.invalidateSize(); fitAll(); }, 140);
       });
     }
     init();
