@@ -50,6 +50,10 @@ const hero = post.data.heroImage;
 ---
 <BaseLayout title={`${post.data.title} — Hidden Soča`} description={post.data.description} jsonld={jsonld}>
   <article class="wrap narrow post">
+    <p class="eyebrow">{post.data.category} · {fmtDate}</p>
+    <h1>{post.data.title}</h1>
+    <p class="lede">{post.data.description}</p>
+
     {hero ? (
       <figure class="hero">
         <img src={hero} alt={post.data.heroAlt ?? post.data.title} width="1200" height="640" />
@@ -66,9 +70,6 @@ const hero = post.data.heroImage;
         <span class="ph"><span class="ph-cam">▢</span><span class="ph-txt">Photo coming soon</span></span>
       </div>
     )}
-    <p class="eyebrow">{post.data.category} · {fmtDate}</p>
-    <h1>{post.data.title}</h1>
-    <p class="lede">{post.data.description}</p>
 
     <div class="prose"><Content /></div>
 
@@ -106,20 +107,22 @@ const hero = post.data.heroImage;
 </BaseLayout>
 
 <style>
-  .post { padding: 1.5rem 0 1rem; }
-  .hero { margin: 0 0 1.6rem; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
-  .hero img { display: block; width: 100%; height: clamp(220px, 38vh, 380px); object-fit: cover; }
+  .post { padding: 1.8rem 0 1rem; }
+  .post .eyebrow { display: block; }
+  .post h1 { margin: 0.25em 0 0.3em; }
+  .lede { font-size: 1.2rem; color: var(--ink-soft); margin-bottom: 1.6rem; }
+  .hero { margin: 0 0 1.8rem; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .hero img { display: block; width: 100%; height: clamp(220px, 42vh, 420px); object-fit: cover; }
   .hero figcaption { font-size: 0.74rem; color: var(--ink-soft); background: var(--paper-2); padding: 0.4rem 0.8rem; }
   .hero figcaption a { color: var(--soca-deep); }
   .hero--ph {
-    height: clamp(190px, 30vh, 300px); background: var(--paper-2);
+    height: clamp(190px, 32vh, 320px); background: var(--paper-2);
     border: 2px dashed rgba(31,58,44,0.18);
     display: flex; align-items: center; justify-content: center;
   }
   .hero--ph .ph { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: var(--ink-soft); }
   .hero--ph .ph-cam { font-size: 2rem; color: var(--soca-deep); line-height: 1; }
   .hero--ph .ph-txt { font-size: 0.8rem; }
-  .lede { font-size: 1.2rem; color: var(--ink-soft); }
   .prose :global(p) { margin: 1.1em 0; }
   .prose :global(ul) { padding-left: 1.2rem; }
   .prose :global(li) { margin: 0.4em 0; }

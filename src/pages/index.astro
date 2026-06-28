@@ -92,11 +92,12 @@ const jsonld = [
       if (typeof L === "undefined") return setTimeout(init, 60);
       const otg = document.querySelector(".otg");
       const map = L.map("map", { scrollWheelZoom: false }).setView([46.28, 13.62], 11);
-      L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
-        maxZoom: 17,
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+        maxZoom: 20,
+        subdomains: "abcd",
         attribution:
-          'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, ' +
-          '<a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)',
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
+          '&copy; <a href="https://carto.com/attributions">CARTO</a>',
       }).addTo(map);
 
       const markers = {};
@@ -106,7 +107,7 @@ const jsonld = [
         const icon = L.divIcon({
           className: "numpin",
           html: `<span style="background:${color}">${s.n}</span>`,
-          iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -14],
+          iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -13],
         });
         const m = L.marker([s.lat, s.lng], { icon }).addTo(map);
         m.bindPopup(`<strong>${s.n}. ${s.name}</strong><br>${s.blurb}<br><a href="${base}blog/${s.post}">Read the guide →</a>`);
@@ -187,7 +188,7 @@ const jsonld = [
   .map-col { position: sticky; top: 60px; height: calc(100vh - 60px); }
   #map { width: 100%; height: 100%; z-index: 1; background: var(--paper-2); }
 
-  .list-col { padding: 1.4rem clamp(1rem, 2.6vw, 2.4rem) 3.5rem; }
+  .list-col { padding: 1.4rem clamp(1.25rem, 2.6vw, 2.4rem) 3.5rem; }
   .intro { color: #fff; padding: 0.6rem 0 1.4rem; }
   .intro .eyebrow { color: rgba(255,255,255,0.85); }
   .intro h1 { color: #fff; font-size: clamp(2.4rem, 5vw, 3.6rem); margin: 0.15em 0 0.2em; }
@@ -236,7 +237,7 @@ const jsonld = [
 
   :global(.numpin span) {
     display: flex; align-items: center; justify-content: center;
-    width: 30px; height: 30px; border-radius: 50%; color: #fff;
+    width: 26px; height: 26px; border-radius: 50%; color: #fff;
     font: 700 13px/1 var(--font-mono); border: 2px solid #fff;
     box-shadow: 0 1px 4px rgba(0,0,0,0.45);
   }
